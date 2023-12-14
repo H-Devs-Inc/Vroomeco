@@ -44,7 +44,7 @@ En dévelopement : ```yarn dev``` (permet de charger a chaque modification)
 
 ### route vers les dossier utiles
 
-<p align="center">Name</p>| Route | <p align="center">utilisation</p>
+Name | Route | <p align="center">utilisation</p>
 :----------------|------------- |-------------:
  React JS | `/ressource/js` | <p align="center"></p>
  route front | `/route/web.php` | <p align="center"></p>
@@ -134,6 +134,6 @@ erDiagram
     TRAJECT ||--o{ USERS_TRAJECTS : "Traject_uuid"
     USERS ||--o{ USERS_TRAJECTS : "User_Id"
     USERS ||--o{ CAR : "User_id"
-    PERSONAL_ACCESS_TOKENS || --o{ USERS : User_Id
+    PERSONAL_ACCESS_TOKENS || --o{ USERS : token
 
 ```
