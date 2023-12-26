@@ -6,29 +6,29 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default function NavbarComponents({ user }) {
     return(
-        <nav className="flex justify-between items-center p-3 bg-white">
+        <nav className="flex justify-between items-center p-3 bg-white border-b-2 border-neutral-100">
             <div className="order-1">
                 <img src={ icon } alt='icon_web' className='w-12'></img>
             </div>
             <div className="order-2">
-                <ul className='flex flex-row space-x-5 items-center'>
+                <ul className='flex flex-row space-x-10 items-center'>
                     <li>
-                        <a href='/home' className='text-black underline underline-offset-2 font-bold'>
+                        <a href={"/home"} className='text-black hover:underline underline-offset-2 uppercase'>
                             Accueil
                         </a>
                     </li>
                     <li>
-                        <a href='/trajects' className='text-sky-900 hover:underline underline-offset-2 font-bold'>
+                        <a href={"/trajects"} className='text-black hover:underline underline-offset-2 uppercase'>
                             Trajets
                         </a>
                     </li>
                     <li>
-                        <a href='/about-us' className='text-sky-900 hover:underline underline-offset-2 font-bold'>
+                        <a href={ "/about-us" } className='text-black hover:underline underline-offset-2 uppercase'>
                             A Propos de nous
                         </a>
                     </li>
                     <li>
-                        <a href='/contact' className='text-sky-900 hover:underline underline-offset-2 font-bold'>
+                        <a href={ "/contact" } className='text-black hover:underline underline-offset-2 uppercase'>
                             Contact
                         </a>
                     </li>

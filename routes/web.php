@@ -42,4 +42,12 @@ Route::get('/trajects', function(){
     return Inertia::render('Trajects/Trajects');
 });
 
+Route::get('/about-us', function(){
+    return Inertia::render('About/AboutUs');
+});
+
+Route::get('/contact', function(){
+    return Inertia::render('Contacts/Contact');
+});
+
 require __DIR__.'/auth.php';

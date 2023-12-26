@@ -7,6 +7,21 @@
                       url("../addons/temp/background/main_bg.png")
 }
 
+#bg-linear {
+  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  border: solid 1px;
+}
+
+#bg-linear-focus {
+  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  border: solid 1px;
+}
+
+#bg-linear:hover {
+  background: transparent; 
+  background: linear-gradient(0.80turn, #ffd90257, #c7f9cc6b, #22577a69);
+}
+
 #footer {
   background-image: url("../addons/temp/background/footer_bg.png");
 }
@@ -31,4 +46,17 @@
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2); 
   border-radius: 10px;
+}
+
+#roads_suggests_container {
+
+}
+
+#img-auth {
+  height: 750px;
+  width: 800px;
+}
+
+#form_contact {
+  width: 500px;
 }
