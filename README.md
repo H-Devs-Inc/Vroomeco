@@ -61,6 +61,7 @@ Name | Route | <p align="center">utilisation</p>
   `/login`| route vers la page de login     | <p align="center" >❌</p>
   `/register`| route vers la page de register | <p align="center">❌</p>
   `/logout`| route vers la page de deconnexion     |<p align="center" >❌</p>
+  `/traject`| route vers la page traject     |<p align="center" >❌</p>
 
 #### Donnée par default: 
 `A venir ...`

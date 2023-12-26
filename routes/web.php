@@ -37,4 +37,9 @@ Route::get('/home', function(){
     return Inertia::render('Welcome');
 });
 
+Route::get('/traject', function(){
+    // $trajects = Traject::all();
+    return Inertia::render('Trajects/Trajects');
+});
+
 require __DIR__.'/auth.php';
