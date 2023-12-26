@@ -74,7 +74,7 @@ title: Diagramme de la Base de Donnée
 ---
 erDiagram
     USERS {
-        User_Id INT
+        Id INT
         Name STRING
         Username STRING
         Email STRING

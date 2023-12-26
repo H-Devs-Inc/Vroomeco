@@ -23,7 +23,7 @@ return new class extends Migration
             // $table->rememberToken();
             // $table->timestamps();
 
-            $table->id('user_id');
+            $table->id();
             $table->string('name');
             $table->string('username')->unique();
             $table->string('email')->unique();

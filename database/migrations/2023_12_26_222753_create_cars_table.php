@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('annee');
             $table->string('immatriculation');
             $table->timestamps();
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
