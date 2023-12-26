@@ -5,6 +5,7 @@ import FooterComponents from '@/Components/Footer/footer_components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faCircle, faLocationDot, faUser } from '@fortawesome/free-solid-svg-icons';
+import Autocomplete from 'react-autocomplete';
 
 import tree from '../../addons/images/tree.png';
 import tree_symbol from '../../addons/temp/tree_symb.png';
@@ -12,8 +13,18 @@ import group_1 from '../../addons/temp/group_0001.png';
 import { useState } from 'react';
 
 export default function Welcome({ user }) {
+    const [number, setNumber ] = useState(0);
+
+    const cities = [
+      "Annecy",
+      "Cluses",
+      "Genève",
+      "Lausanne",
+    ]
+
     return (
         <>
+            <Head title="Home" />
             <NavbarComponents/>
             <section className='p-5' id='main-content'>
               <div className='flex flex-row space-x-5 items-center justify-center'>
@@ -43,37 +54,51 @@ export default function Welcome({ user }) {
                 <span className='text-2xl text-cyan-900 font-bold'>
                   Et si on voyageait ensemble ?
                 </span>
-                <div className='bg-white flex justify-between rounded-lg p-2' id='search-bar-main'>
+                <form className='bg-white flex justify-between items-center rounded-lg p-2' id='search-bar-main'>
                   <div className='order-1'>
                     <div className='flex flex-row space-x-2 items-center'>
                       <FontAwesomeIcon icon={ faCircle } className='text-green-400' />
-                      <span className='text-sky-900'>Départ</span>
+                      <select className='border-0 w-32'>
+                        <option>Départ</option>
+                        {cities.map((city, index) => (
+                          <option>
+                            { city }
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                   <div className='order-2'>
                     <div className='flex flex-row space-x-2 items-center'>
-                      <FontAwesomeIcon icon={ faLocationDot } className='text-green-400' />
-                      <span className='text-sky-900'>Arrivé</span>
+                      <FontAwesomeIcon icon={ faCircle } className='text-green-400' />
+                      <select className='border-0 w-32'>
+                        <option>Arrivé</option>
+                        {cities.map((city, index) => (
+                          <option>
+                            { city }
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                   <div className='order-3'>
                     <div className='flex flex-row space-x-2 items-center'>
                       <FontAwesomeIcon icon={ faUser } className='text-green-400' />
-                      <span className='text-sky-900'>0</span>
+                      <input type='number' className='text-sky-900 w-16 border-0' value={ number }></input>
                     </div>
                   </div>
                   <div className='order-4'>
                     <div className='flex flex-row space-x-2 items-center'>
                       <FontAwesomeIcon icon={ faCalendarAlt } className='text-green-400' />
-                      <span className='text-sky-900'>00/00/0000</span>
+                      <input type="date" className='text-sky-900 border-0 w-42'></input>
                     </div>
                   </div>
                   <div className='order-5'>
-                    <button className='bg-indigo-400 text-white font-bold rounded-lg w-32 h-7'>
+                    <button className='bg-indigo-400 hover:bg-indigo-500 text-white font-bold rounded-lg w-28 p-2'>
                       Rechercher
                     </button>
                   </div>
-                </div>
+                </form>
               </div>
             </section>
             <section className='p-5' id='secondary'>
@@ -180,7 +205,7 @@ export default function Welcome({ user }) {
                   </div>
                   <div className='order-2 ml-10'>
                     <form className='flex flex-row items-center'>
-                      <input className='p-1.5 bg-gray-100 w-52' placeholder='Entrez votre e-mail'></input>
+                      <input className='p-1.5 bg-gray-100 w-52 border-0' placeholder='Entrez votre e-mail'></input>
                       <button type='submit' className='bg-black hover:bg-gray-900 text-white p-1.5'>
                         S'abonner
                       </button>

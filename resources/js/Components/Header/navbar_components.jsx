@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icon from '../../../addons/images/icon.png';
 import user_icon from '../../../addons/temp/user_icon.png';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function NavbarComponents({ user }) {
@@ -11,22 +13,22 @@ export default function NavbarComponents({ user }) {
             <div className="order-2">
                 <ul className='flex flex-row space-x-5 items-center'>
                     <li>
-                        <a href='/#' className='text-black underline underline-offset-2 font-bold'>
+                        <a href='/home' className='text-black underline underline-offset-2 font-bold'>
                             Accueil
                         </a>
                     </li>
                     <li>
-                        <a href='/#' className='text-sky-900 hover:underline underline-offset-2 font-bold'>
+                        <a href='/trajects' className='text-sky-900 hover:underline underline-offset-2 font-bold'>
                             Trajets
                         </a>
                     </li>
                     <li>
-                        <a href='/#' className='text-sky-900 hover:underline underline-offset-2 font-bold'>
+                        <a href='/about-us' className='text-sky-900 hover:underline underline-offset-2 font-bold'>
                             A Propos de nous
                         </a>
                     </li>
                     <li>
-                        <a href='/#' className='text-sky-900 hover:underline underline-offset-2 font-bold'>
+                        <a href='/contact' className='text-sky-900 hover:underline underline-offset-2 font-bold'>
                             Contact
                         </a>
                     </li>
@@ -42,14 +44,9 @@ export default function NavbarComponents({ user }) {
                     <div className=''>
                         {!user ? 
                             <>
-                                <div className='flex flex-row space-x-3'>
-                                    <a href={ route('login') } className='bg-cyan-800 hover:bg-cyan-900 text-white p-1 rounded-md'>
-                                        Se connecter
-                                    </a>
-                                    <a href={ route('register') } className='bg-white hover:bg-gray-100 border border-black rounded-lg p-1'>
-                                        S'enregistrer
-                                    </a>
-                                </div>
+                                <a href={ route("login") } className=''>
+                                    <FontAwesomeIcon icon={ faUser } />
+                                </a>
                             </>
                         :
                             <>
