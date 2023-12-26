@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#main-content {
+    background-image: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2),
+                      url("../addons/temp/background/main_bg.png")
+}
+
+#footer {
+  background-image: url("../addons/temp/background/footer_bg.png");
+}
+
+#search-bar-main {
+  width: 800px;
+}
+
+#secondary {
+  background-image: url("../addons/temp/background/tree_bg.png");
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2); 
+  border-radius: 10px;
+}
