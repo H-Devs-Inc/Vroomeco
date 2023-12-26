@@ -37,7 +37,7 @@ Route::get('/home', function(){
     return Inertia::render('Welcome');
 });
 
-Route::get('/traject', function(){
+Route::get('/trajects', function(){
     // $trajects = Traject::all();
     return Inertia::render('Trajects/Trajects');
 });
