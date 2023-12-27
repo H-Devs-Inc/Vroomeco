@@ -38,7 +38,7 @@ export default function Welcome({ user }) {
                       Notre plateforme innovante facilite la mise en relation entre conducteurs et passagers qui partagent des itinéraires similaires à travers la Suisse.
                     </p>
                     <div className='flex flex-row space-x-5'>
-                      <button className='bg-cyan-800 hover:bg-cyan-900 rounded-lg p-2 text-green-400 w-52'>
+                      <button className='bg-indigo-400 hover:bg-indigo-500 border border-blue-700 rounded-lg p-2 text-white w-52'>
                         Télécharger sur IOS
                       </button>
                       <button className='bg-white hover:bg-gray-100 rounded-lg p-2 text-sky-900 w-52 border border-black'>
@@ -196,17 +196,17 @@ export default function Welcome({ user }) {
               <div className='flex justify-center items-center p-5'>
                 newsletter
               </div>
-              <div className='flex justify-center items-center'>
+              <div className='flex justify-center items-center bg-white shadow-xl p-3' id='middle-content-newsletter'>
                 <div className='flex justify-between'>
                   <div className='order-1 p-1.5'>
-                    <span className='font-bold'>
-                      Abonnez-vous a notre newsletter
+                    <span className=''>
+                      Souscrivez à notre <a href='/#' className='hover:underline underline-offset-2 font-bold'>newsletters</a>*
                     </span>
                   </div>
                   <div className='order-2 ml-10'>
                     <form className='flex flex-row items-center'>
-                      <input className='p-1.5 bg-gray-100 w-52 border-0' placeholder='Entrez votre e-mail'></input>
-                      <button type='submit' className='bg-black hover:bg-gray-900 text-white p-1.5'>
+                      <input className='p-1.5 bg-neutral-200 w-52 border-0 rounded-l-lg' placeholder='Entrez votre e-mail'></input>
+                      <button type='submit' className='bg-indigo-400 hover:bg-indigo-500 text-sm uppercase font-bold text-white p-2 rounded-r-lg'>
                         S'abonner
                       </button>
                     </form>

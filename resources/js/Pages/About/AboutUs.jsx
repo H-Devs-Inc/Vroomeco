@@ -1,18 +1,16 @@
 import NavbarComponents from "@/Components/Header/navbar_components";
 import FooterComponents from "@/Components/Footer/footer_components";
 
-import RoadsList from "./Partials/RoadsList";
-
-const Trajects = () => {
+const AboutUs = () => {
     return(
         <>
             <NavbarComponents/>
-            <div className="p-5">
-                <RoadsList/>
-            </div>
+                <div className="p-5">
+                    about us
+                </div>
             <FooterComponents/>
         </>
     )
 }
 
-export default Trajects;
+export default AboutUs;

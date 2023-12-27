@@ -7,6 +7,20 @@
                       url("../addons/temp/background/main_bg.png")
 }
 
+#bg-linear {
+  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  border: solid 1px;
+}
+
+#bg-linear-focus {
+  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+}
+
+#bg-linear:hover {
+  background: transparent; 
+  background: linear-gradient(0.80turn, #ffd90257, #c7f9cc6b, #22577a69);
+}
+
 #footer {
   background-image: url("../addons/temp/background/footer_bg.png");
 }
@@ -31,4 +45,57 @@
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2); 
   border-radius: 10px;
+}
+
+#roads_suggests_container {
+
+}
+
+#img-auth {
+  height: 750px;
+  width: 800px;
+}
+
+#form_contact {
+  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  width: 500px;
+}
+
+#details-control {
+  width: 800px;
+}
+
+details > summary {
+  list-style-type: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+#details-control summary {
+  margin-left: 5px
+}
+
+details > summary::before {
+  content: '>';
+  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  padding: 5px;
+}
+
+details[open] > summary::before {
+  content: 'X';
+  padding: 5px;
+}
+
+details[open] > summary {
+  margin-bottom: 1rem;
+}
+
+#middle-content-newsletter {
+  position: absolute;
+  left: 50%;
+  margin-top: 20px;
+  transform: translate(-50%, -50%);
+  width: 620px;
 }
