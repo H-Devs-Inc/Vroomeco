@@ -1,6 +1,6 @@
 const FormContact = () => {
     return(
-        <form className="bg-neutral-100 shadow-xl p-5 rounded-lg" id="form_contact">
+        <form className="bg-neutral-100 shadow-xl p-5 rounded-lg ml-32" id="form_contact">
             <div className="flex justify-between mb-4">
                 <div className="order-1">
                     <div className="flex flex-col space-y-1">
@@ -23,7 +23,7 @@ const FormContact = () => {
                 <div className="order-1">
                     <div className="flex flex-col space-y-1">
                         <label>
-                            Nom
+                            Phone
                         </label>
                         <input type="text" className=""></input>
                     </div>
@@ -31,7 +31,7 @@ const FormContact = () => {
                 <div className="order-2">
                     <div className="flex flex-col space-y-1">
                         <label>
-                            Prénom
+                            Entreprise
                         </label>
                         <input type="text" className=""></input>
                     </div>
