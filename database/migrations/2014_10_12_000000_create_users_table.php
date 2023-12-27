@@ -28,13 +28,13 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone_number');
+            $table->string('phone_number')->nullable();
             $table->string('password');
             $table->timestamps();
             $table->string('current_token')->nullable();
             $table->rememberToken();
-            $table->text('biographie');
-            $table->string('roles');
+            $table->text('biographie')->nullable();
+            $table->string('roles')->nullable();
         });
     }
 

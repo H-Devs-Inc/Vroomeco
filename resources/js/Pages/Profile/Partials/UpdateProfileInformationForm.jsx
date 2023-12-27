@@ -10,7 +10,9 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         name: user.name,
+        username:user.username,
         email: user.email,
+        biographie: user.biographie,
     });
 
     const submit = (e) => {
@@ -47,6 +49,22 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                 </div>
 
                 <div>
+                    <InputLabel htmlFor="username" value="Username" />
+                    
+                    <TextInput
+                        id="username"
+                        className="mt-1 block w-full"
+                        value={data.username}
+                        onChange={(e) => setData('username', e.target.value)}
+                        required
+                        isFocused
+                        autoComplete="username"
+                    />
+
+                    <InputError className="mt-2" message={errors.username} />
+                </div>
+
+                <div>
                     <InputLabel htmlFor="email" value="Email" />
 
                     <TextInput
@@ -61,6 +79,21 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                     <InputError className="mt-2" message={errors.email} />
                 </div>
+
+                <div>
+                    <InputLabel htmlFor="biographie" value="Biographie" />
+                    
+                    <textarea
+                    id="biographie"
+                    className="mt-1 block w-full border rounded-md shadow-sm"
+                    value={data.biographie}
+                    onChange={(e) => setData('biographie', e.target.value)}
+                    autoComplete="biographie"
+                    />
+
+                    <InputError className="mt-2" message={errors.biographie} />
+                </div>
+
 
                 {mustVerifyEmail && user.email_verified_at === null && (
                     <div>

@@ -64,8 +64,24 @@ Name | Route | <p align="center">utilisation</p>
   `/traject`| route vers la page traject     |<p align="center" >❌</p>
 
 #### Donnée par default: 
-`A venir ...`
+faire la commande : 
+```bash
+    php artisan db:seed --class=UsersTableSeeder
+```
+vous aurez ensuite ces information la de remplie pour l'utilisateur de test:
+```php
+        DB::table('users')->insert([
+            'name' => 'John Doe',
+            'username' => 'johndoe',
+            'email' => 'johndoe@example.com',
+            'phone_number' => '123456789',
+            'password' => Hash::make('password'), 
+            'biographie' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
 
+```
 #### Diagram de la bdd 
 
 ```mermaid
