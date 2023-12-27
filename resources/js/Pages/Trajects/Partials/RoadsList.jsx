@@ -1,4 +1,4 @@
-import { faArrowRight, faArrowRightArrowLeft, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faArrowRightArrowLeft, faCar, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
@@ -40,9 +40,11 @@ const RoadsList = () => {
                                             </div>
                                         </div>
                                         <div className="order-2">
-                                            <a href="/#">
-                                                <img src="https://static.generated.photos/vue-static/face-generator/landing/wall/16.jpg" alt="road_user" className="w-7 h-7 rounded-full"></img>
-                                            </a>
+                                            <div>
+                                                <a href="/#">
+                                                    <img src="https://static.generated.photos/vue-static/face-generator/landing/wall/16.jpg" alt="road_user" className="w-7 h-7 rounded-full"></img>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="flex flex-row space-x-3 mt-5">
@@ -51,9 +53,12 @@ const RoadsList = () => {
                                                 <span className="font-bold text-black">
                                                     00:00
                                                 </span>
-                                                <span className="text-sm text-indigo-400 p-1">
-                                                    2h30
-                                                </span>
+                                                <div className="flex flex-row space-x-1 items-center text-indigo-400">
+                                                    <FontAwesomeIcon icon={ faCar } className="text-sm"/>
+                                                    <span className="text-sm p-1">
+                                                        2h30
+                                                    </span>
+                                                </div>
                                             </div>
                                             <span className="font-bold text-black">
                                                 02:30

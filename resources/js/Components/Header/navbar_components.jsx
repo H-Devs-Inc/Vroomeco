@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icon from '../../../addons/images/icon.png';
 import user_icon from '../../../addons/temp/user_icon.png';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function NavbarComponents({ user }) {
@@ -36,9 +36,10 @@ export default function NavbarComponents({ user }) {
             </div>
             <div className="order-3">
                 <div className='flex flex-row space-x-5 items-center'>
-                    <div className=''>
-                        <form className=''>
-                            <input type='search' className='p-1 bg-gray-100 text-black placeholder:text-black rounded-lg' placeholder='Recherche de trajets'></input>
+                    <div className='flex flex-row space-x-1 items-center bg-gray-100 p-1 rounded-lg'>
+                        <FontAwesomeIcon icon={ faSearch }/>
+                        <form className='bg-gray-100'>
+                            <input type='search' className='p-1 bg-gray-100 text-black placeholder:text-black rounded-lg border-none' placeholder='Recherche de trajets'></input>
                         </form>
                     </div>
                     <div className=''>

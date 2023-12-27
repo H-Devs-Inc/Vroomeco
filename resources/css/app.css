@@ -14,7 +14,6 @@
 
 #bg-linear-focus {
   background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
-  border: solid 1px;
 }
 
 #bg-linear:hover {
@@ -58,5 +57,45 @@
 }
 
 #form_contact {
+  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
   width: 500px;
+}
+
+#details-control {
+  width: 800px;
+}
+
+details > summary {
+  list-style-type: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+#details-control summary {
+  margin-left: 5px
+}
+
+details > summary::before {
+  content: '>';
+  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  padding: 5px;
+}
+
+details[open] > summary::before {
+  content: 'X';
+  padding: 5px;
+}
+
+details[open] > summary {
+  margin-bottom: 1rem;
+}
+
+#middle-content-newsletter {
+  position: absolute;
+  left: 50%;
+  margin-top: 20px;
+  transform: translate(-50%, -50%);
+  width: 620px;
 }

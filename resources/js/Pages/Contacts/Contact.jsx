@@ -23,24 +23,24 @@ const Contacts = () => {
                                 Loreum Ipseum
                             </p>
                         </div>
-                        <div className="mt-24">
+                        <div className="mt-24 rounded-lg p-5" id="bg-linear-focus">
                             <ul className="flex flex-col space-y-5">
                                 <li>
                                     <div className="flex flex-row space-x-3 items-center">
                                         <FontAwesomeIcon icon={ faEnvelope } />
-                                        <span>support@vroomeco.con</span>
+                                        <span className="text-sm font-bold">support@vroomeco.con</span>
                                     </div> 
                                 </li>
                                 <li>
                                     <div className="flex flex-row space-x-3 items-center">
                                         <FontAwesomeIcon icon={ faPhone } />
-                                        <span>+41 000 00 000</span>
+                                        <span className="text-sm font-bold">+41 000 00 000</span>
                                     </div> 
                                 </li>
                                 <li>
                                     <div className="flex flex-row space-x-3 items-center">
                                         <FontAwesomeIcon icon={ faLocationDot } />
-                                        <span>00 Avenue X, Ville, Code Postal, Pays</span>
+                                        <span className="text-sm font-bold">00 Avenue X, Ville, Code Postal, Pays</span>
                                     </div> 
                                 </li>
                             </ul>
