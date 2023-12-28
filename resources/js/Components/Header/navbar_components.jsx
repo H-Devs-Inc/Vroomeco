@@ -1,10 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icon from '../../../addons/images/icon.png';
 import user_icon from '../../../addons/temp/user_icon.png';
-import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faFlag, faGear, faMoon, faSearch, faSun, faUser, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 
 export default function NavbarComponents({ user }) {
+    const [ theme, setTheme ] = useState(true);
+
     return(
         <nav className="flex justify-between items-center p-3 bg-white border-b-2 border-neutral-100">
             <div className="order-1">
@@ -56,6 +59,63 @@ export default function NavbarComponents({ user }) {
                                 </span>
                             </>
                         }
+                    </div>
+                    <div>
+                        <button className='text-gray-500' onClick={(e) => {
+                            const element = document.getElementById('dropdown-menu');
+
+                            if(element.style.display === "block") {
+                                element.style.display = "none"
+                            } else {
+                                element.style.display = "block"
+                            }
+                        }}>
+                            <FontAwesomeIcon icon={ faGear } />
+                        </button>
+                        <div className='hidden absolute right-1 mt-1 w-40 top-16 bg-gray-900/25 p-2 rounded-lg' id='dropdown-menu'>
+                            <ul className='flex flex-col space-y-5'>
+                                <li>
+                                    <a href='' className='flex flex-row space-x-3 items-center'>
+                                        <FontAwesomeIcon icon={ faWrench } className='text-neutral-900' />
+                                        <span className='font-bold text-white hover:text-neutral-100 uppercase text-sm'>
+                                            Paramètres
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div className='flex flex-row space-x-3 items-center'>
+                                        <FontAwesomeIcon icon={ faFlag } className='text-neutral-900' />
+                                        <select className='border-none bg-transparent w-full font-bold text-white hover:text-neutral-100'>
+                                            <option className='text-black'>
+                                                FR
+                                            </option>
+                                            <option className='text-black'>
+                                                EN
+                                            </option>
+                                            <option className='text-black'>
+                                                DE
+                                            </option>
+                                            <option className='text-black'>
+                                                IT
+                                            </option>
+                                            <option className='text-black'>
+                                                ES
+                                            </option>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className='flex flex-row space-x-3 items-center'>
+                                        <FontAwesomeIcon icon={ theme === true ? faSun : faMoon } className='text-neutral-900' />
+                                        <button className='font-bold text-white hover:text-neutral-100 uppercase text-sm' onClick={(e) => {
+                                            theme === true ? setTheme(false) : setTheme(true)
+                                        }}>
+                                            { theme === true ? "Mode clair" : "Mode sombre"}
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

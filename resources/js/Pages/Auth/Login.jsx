@@ -42,25 +42,27 @@ export default function Login({ status, canResetPassword }) {
                                 Vous n'avez pas encore de compte enregistré ? Alors <a href={ route("register") } className='hover:font-bold underline underline-offset-2'>créer-en</a> dès maitenant.
                             </p>
                         </div>
-                        <form className='flex flex-col space-y-5 p-5'>
+                        <form className='flex flex-col space-y-5 p-5' onSubmit={ submit }>
                             <div className='flex flex-col space-y-2'>
                                 <div className='flex flex-row space-x-3 items-center'>
                                     <FontAwesomeIcon icon={ faEnvelope } />
                                     <label>E-Mail</label>
                                 </div>
-                                <input type='email' className='bg-transparent border-t-0 border-r-0 border-l-0 border-b-2 border-black' placeholder='Entrez votre adresse e-mail'></input>
+                                <input type='email' className='bg-transparent border-t-0 border-r-0 border-l-0 border-b-2 border-black' placeholder='Entrez votre adresse e-mail' onChange={(e) => { setData({ email: e.target.value }) }}></input>
                             </div>
                             <div className='flex flex-col space-y-2'>
                                 <div className='flex flex-row space-x-3 items-center'>
                                     <FontAwesomeIcon icon={ faLock } />
                                     <label>Mot de passe</label>
                                 </div>
-                                <input type='password' className='bg-transparent border-t-0 border-r-0 border-l-0 border-b-2 border-black' placeholder='******'></input>
+                                <input type='password' className='bg-transparent border-t-0 border-r-0 border-l-0 border-b-2 border-black' placeholder='******' onChange={(e) => { setData({ password: e.target.value }) }}></input>
                             </div>
                             <div className='flex justify-between'>
                                 <div className='order-1'>
                                     <div className='flex flex-row space-x-1 items-center'>
-                                        <input type='checkbox'></input>
+                                        <input type='checkbox' onChange={(e) => {
+                                            setData({ remember: e.target.checked })
+                                        }}></input>
                                         <label className=''>Se souvenir de moi</label>
                                     </div>
                                 </div>

@@ -29,7 +29,7 @@ export default function Welcome({ user }) {
             <section className='p-5' id='main-content'>
               <div className='flex flex-row space-x-5 items-center justify-center'>
                 <div className='flex flex-col space-y-10 items-center justify-center'>
-                    <span className='text-2xl text-cyan-900 font-bold'>
+                    <span className='text-3xl text-blue-800 font-bold'>
                       Bienvenue sur VroomEco !
                     </span>
                     <p className='w-96 text-center'>
@@ -51,7 +51,7 @@ export default function Welcome({ user }) {
                 </div>
               </div>
               <div className='flex flex-col space-y-10 items-center justify-center mt-24'>
-                <span className='text-2xl text-cyan-900 font-bold'>
+                <span className='text-3xl text-blue-800 font-bold'>
                   Et si on voyageait ensemble ?
                 </span>
                 <form className='bg-white flex justify-between items-center rounded-lg p-2' id='search-bar-main'>
@@ -103,7 +103,7 @@ export default function Welcome({ user }) {
             </section>
             <section className='p-5' id='secondary'>
               <div className='flex items-center justify-center'>
-                  <span className='text-2xl text-cyan-900 font-bold'>
+                  <span className='text-3xl text-blue-800 font-bold'>
                     Pourquoi choisir VroomEco ?
                   </span>
               </div>
@@ -189,7 +189,7 @@ export default function Welcome({ user }) {
             </section>
             <section className='p-5'>
               <div className='flex items-center justify-center'>
-                  <span className='text-2xl text-cyan-900 font-bold'>
+                  <span className='text-3xl text-blue-800 font-bold'>
                     Ils nous font confiances
                   </span>
               </div>
