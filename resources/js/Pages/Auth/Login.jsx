@@ -74,7 +74,7 @@ export default function Login({ status, canResetPassword }) {
                                 </div>
                             </div>
                             <div className=''>
-                                <button className='bg-white hover:bg-transparent border-2 border-white text-black p-2 w-full rounded-lg'>
+                                <button className='bg-white hover:bg-transparent border-2 border-white text-black p-2 w-full rounded-lg' type='submit'>
                                     Se connecter
                                 </button>
                             </div>
