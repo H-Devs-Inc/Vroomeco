@@ -5,12 +5,11 @@ import user_icon from '../../addons/temp/user_icon.png';
 import { faFlag, faGear, faMoon, faRightFromBracket, faSearch, faSun, faUser, faWrench } from '@fortawesome/free-solid-svg-icons';
 
 export default function Authenticated({ user, header, children }) {
-    const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     const [ theme, setTheme ] = useState(true);
 
     return (
         <nav className='flex justify-between items-center p-3 bg-white border-b-2 border-neutral-100'>
-<div className="order-1">
+            <div className="order-1">
                 <img src={ icon } alt='icon_web' className='w-12'></img>
             </div>
             <div className="order-2">
@@ -118,8 +117,8 @@ export default function Authenticated({ user, header, children }) {
                                     <div className='flex flex-row space-x-3 items-center'>
                                         <FontAwesomeIcon icon={ faRightFromBracket } className='text-red-400' />
                                         <a href={route('logout')} className='font-bold text-red-500 hover:text-red-600 uppercase text-sm'>
-                                        Déconnexion
-                                    </a>
+                                            Déconnexion
+                                        </a>
                                     </div>
                                 </li>
                             </ul>

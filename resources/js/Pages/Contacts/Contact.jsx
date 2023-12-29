@@ -5,9 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 import FrenquentlyAskedQuestions from "./Partials/FrequentlyAskedQuestions";
 
+import { Head } from '@inertiajs/react';
+
 const Contacts = () => {
     return(
         <>
+            <Head title="Contact" />
             <NavbarComponents/>
             <div className="p-5">
                 <div className="flex justify-between">
