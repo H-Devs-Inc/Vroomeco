@@ -46,7 +46,7 @@ export default function Dashboard({ auth }) {
                         <div className='p-5'>
                             <section className='bg-neutral-100 p-2 rounded-lg'>
                                 <p>
-                                    Biographie here
+                                { auth.user.biographie }
                                 </p>
                             </section>
                             <hr className="w-full h-0.5 mx-auto my-2 bg-gray-900 border-0 rounded md:my-7"></hr>
