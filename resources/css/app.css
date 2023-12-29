@@ -21,6 +21,10 @@
   background: linear-gradient(0.80turn, #ffd90257, #c7f9cc6b, #22577a69);
 }
 
+#profile-bg {
+  background-image: url("../addons/temp/background/bg-test.jpeg");
+}
+
 #footer {
   background-image: url("../addons/temp/background/footer_bg.png");
 }
@@ -98,4 +102,17 @@ details[open] > summary {
   margin-top: 20px;
   transform: translate(-50%, -50%);
   width: 620px;
+}
+
+#profile-container {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  width: 620px;
+  height: 300px;
+}
+
+#profile-card {
+  width: 700px;
 }

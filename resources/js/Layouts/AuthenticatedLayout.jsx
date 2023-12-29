@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icon from '../../addons/images/icon.png';
 import user_icon from '../../addons/temp/user_icon.png';
 import { faFlag, faGear, faMoon, faRightFromBracket, faSearch, faSun, faUser, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { Link } from '@inertiajs/react';
 
 export default function Authenticated({ user, header, children }) {
     const [ theme, setTheme ] = useState(true);
@@ -116,9 +117,9 @@ export default function Authenticated({ user, header, children }) {
                                 <li>
                                     <div className='flex flex-row space-x-3 items-center'>
                                         <FontAwesomeIcon icon={ faRightFromBracket } className='text-red-400' />
-                                        <a href={route('logout')} className='font-bold text-red-500 hover:text-red-600 uppercase text-sm'>
+                                        <Link href={route('logout')} method='post' as='button' className='font-bold text-red-500 hover:text-red-600 uppercase text-sm'>
                                             Déconnexion
-                                        </a>
+                                        </Link>
                                     </div>
                                 </li>
                             </ul>

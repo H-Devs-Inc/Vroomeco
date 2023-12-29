@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FooterComponents = () => {
     return(
-        <footer className="" id="footer">
+        <footer className="z-60" id="footer">
             <div className="flex justify-between p-12">
                 <div className="order-1">
                     <div className="flex flex-col space-y-5">
