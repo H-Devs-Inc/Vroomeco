@@ -53,7 +53,7 @@ const RoadsList = () => {
                                                 <span className="font-bold text-black">
                                                     00:00
                                                 </span>
-                                                <div className="flex flex-row space-x-1 items-center text-indigo-400">
+                                                <div className="flex flex-row space-x-1 items-center text-blue-600">
                                                     <FontAwesomeIcon icon={ faCar } className="text-sm"/>
                                                     <span className="text-sm p-1">
                                                         2h30
@@ -65,13 +65,13 @@ const RoadsList = () => {
                                             </span>
                                         </div>
                                         <div className="items-center text-center">
-                                            <div className="w-3 h-3 rounded-full bg-transparent border-2 border-green-400"></div>
-                                            <div class="inline-block h-16 w-0.5 bg-green-400 opacity-100 mt-1"></div>
-                                            <div className="w-3 h-3 rounded-full bg-transparent border-2 border-green-400"></div>
+                                            <div className="w-3 h-3 rounded-full bg-transparent border-2 border-blue-600"></div>
+                                            <div class="inline-block h-16 w-0.5 bg-blue-600 opacity-100 mt-1"></div>
+                                            <div className="w-3 h-3 rounded-full bg-transparent border-2 border-blue-600"></div>
                                         </div>
                                     </div>
                                     <div className="mt-5">
-                                        <button className="bg-green-400 hover:bg-transparent border-2 border-green-400  p-2 w-44 rounded-lg">
+                                        <button className="bg-blue-600 text-white hover:bg-transparent border-2 border-blue-600  p-2 w-44 rounded-lg">
                                             Réserver ce trajet
                                         </button>
                                     </div>

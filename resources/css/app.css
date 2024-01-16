@@ -3,22 +3,26 @@
 @tailwind utilities;
 
 #main-content {
-    background-image: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2),
+    background-image: linear-gradient(35deg, rgba(0, 62, 104, 0.564) 0%, rgba(181, 248, 196, 0.548) 60%, rgba(255, 221, 0, 0.493) 100%),
                       url("../addons/temp/background/main_bg.png")
 }
 
 #bg-linear {
-  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  background: linear-gradient(35deg, rgba(0, 62, 104, 0.564) 0%, rgba(181, 248, 196, 0.548) 60%, rgba(255, 221, 0, 0.493) 100%);
   border: solid 1px;
 }
 
+#title {
+  font-family: "Lora", "sans-serif";
+}
+
 #bg-linear-focus {
-  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  background: linear-gradient(35deg, rgba(0, 62, 104, 0.564) 0%, rgba(181, 248, 196, 0.548) 60%, rgba(255, 221, 0, 0.493) 100%);
 }
 
 #bg-linear:hover {
   background: transparent; 
-  background: linear-gradient(0.80turn, #ffd90257, #c7f9cc6b, #22577a69);
+  background: linear-gradient(35deg, rgba(0, 62, 104, 0.564) 0%, rgba(181, 248, 196, 0.548) 60%, rgba(255, 221, 0, 0.493) 100%);
 }
 
 #profile-bg {

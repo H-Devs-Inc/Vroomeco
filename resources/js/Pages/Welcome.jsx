@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faCircle, faLocationDot, faUser } from '@fortawesome/free-solid-svg-icons';
 import Autocomplete from 'react-autocomplete';
 
+import roads from '../../addons/images/roads.png';
 import tree from '../../addons/images/tree.png';
 import tree_symbol from '../../addons/temp/tree_symb.png';
 import group_1 from '../../addons/temp/group_0001.png';
@@ -27,32 +28,28 @@ export default function Welcome({ user }) {
         <>
             <Head title="Home" />
             <NavbarComponents/>
-            <section className='p-5' id='main-content'>
-              <div className='flex flex-row space-x-5 items-center justify-center'>
-                <div className='flex flex-col space-y-10 items-center justify-center'>
-                    <span className='text-3xl text-blue-800 font-bold'>
+            <section className='p-5 h-screen' id='main-content'>
+              <div className='flex justify-between p-20'>
+                <div className='order-1'>
+                  <div className='flex flex-col space-y-10'>
+                  <span className='text-4xl text-blue-600 font-extrabold' id='title'>
                       Bienvenue sur VroomEco !
                     </span>
-                    <p className='w-96 text-center'>
+                    <p className='w-3/4'>
                       VroomEco vous offre bien plus qu'un simple moyen de déplacement partagé ; c'est une initiative dédiée à la préservation de notre environnement tout en créant des liens et en simplifiant vos trajets.
                       <br/><br/>
                       Notre plateforme innovante facilite la mise en relation entre conducteurs et passagers qui partagent des itinéraires similaires à travers la Suisse.
                     </p>
-                    <div className='flex flex-row space-x-5'>
-                      <button className='bg-indigo-400 hover:bg-indigo-500 border border-blue-700 rounded-lg p-2 text-white w-52'>
-                        Télécharger sur IOS
-                      </button>
-                      <button className='bg-white hover:bg-gray-100 rounded-lg p-2 text-sky-900 w-52 border border-black'>
-                        Télécharger sur Android
-                      </button>
-                    </div>
+                  </div>
                 </div>
-                <div className='pt-10 pl-32'>
-                  <img src={ group_1 } alt='temp_image' className='w-64 h-96'></img>
+                <div className='order-2'>
+                  <div className='pr-36'>
+                    <img src={ group_1 } alt='temp_image' className='w-64 h-96'></img>
+                  </div>
                 </div>
               </div>
-              <div className='flex flex-col space-y-10 items-center justify-center mt-24'>
-                <span className='text-3xl text-blue-800 font-bold'>
+              <div className='flex flex-col space-y-10 items-center justify-center'>
+                <span className='text-4xl text-blue-600 font-extrabold' id='title'>
                   Et si on voyageait ensemble ?
                 </span>
                 <form className='bg-white flex justify-between items-center rounded-lg p-2' id='search-bar-main'>
@@ -95,7 +92,7 @@ export default function Welcome({ user }) {
                     </div>
                   </div>
                   <div className='order-5'>
-                    <button className='bg-indigo-400 hover:bg-indigo-500 text-white font-bold rounded-lg w-28 p-2'>
+                    <button className='bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg w-28 p-2'>
                       Rechercher
                     </button>
                   </div>
@@ -104,7 +101,7 @@ export default function Welcome({ user }) {
             </section>
             <section className='p-5' id='secondary'>
               <div className='flex items-center justify-center'>
-                  <span className='text-3xl text-blue-800 font-bold'>
+                  <span className='text-3xl text-blue-500 font-bold'>
                     Pourquoi choisir VroomEco ?
                   </span>
               </div>
@@ -187,6 +184,7 @@ export default function Welcome({ user }) {
                   </div>
                 </div>
               </div>
+
             </section>
             <section className='p-5'>
               <div className='flex items-center justify-center'>

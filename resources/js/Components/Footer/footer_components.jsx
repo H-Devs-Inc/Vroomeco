@@ -11,7 +11,7 @@ const FooterComponents = () => {
                             VroomEco
                         </span>
                         <p className="text-neutral-100 w-96">
-                            Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                            Pas seulement un trajet<br/>C'est un état d'esprit !
                         </p>
                     </div>
                 </div>
@@ -112,12 +112,6 @@ const FooterComponents = () => {
                                 Nous contacter
                             </span>
                             <ul className="flex flex-col space-y-3 text-neutral-100">
-                                <li>
-                                    <div className="flex flex-row space-x-2 items-baseline">
-                                        <FontAwesomeIcon icon={ faLocationDot } />
-                                        <span className="w-52">00 Avenue X, Ville, Code Postal, Pays</span>
-                                    </div>
-                                </li>
                                 <li>
                                     <div className="flex flex-row space-x-2 items-center">
                                         <FontAwesomeIcon icon={ faPhone } />
