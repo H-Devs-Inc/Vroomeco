@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('trajects', function (Blueprint $table) {
             $table->id('traject_id');
-            $table->uuid('uuid')->unique(); // Utilisez unsignedBigInteger ici
+            //création de la colonne uuid de facon aleatoire
+            $table->string('uuid')->unique();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('vehicule')->nullable();
             $table->string('ville_depart');
             $table->string('ville_arriver');
             $table->date('date_traject');
-            $table->time('estimated_time');
-            $table->integer('distance');
+            $table->time('estimated_time')->nullable();
+            $table->string('distance')->nullable();
             $table->timestamps();
 
             // Définit la clé étrangère
