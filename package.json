@@ -28,6 +28,7 @@
         "@reach/combobox": "^0.18.0",
         "@react-google-maps/api": "^2.19.3",
         "react-autocomplete": "^1.8.1",
+        "react-lazy-load-image-component": "^1.6.0",
         "use-places-autocomplete": "^4.0.1"
     }
 }
