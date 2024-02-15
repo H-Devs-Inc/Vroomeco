@@ -5,17 +5,17 @@ const FormContact = () => {
                 <div className="order-1">
                     <div className="flex flex-col space-y-1">
                         <label className="uppercase text-sm font-bold">
-                            Nom
+                            Nom<span className="text-red-600">*</span>
                         </label>
-                        <input type="text" className="bg-gray-100 rounded-lg border-none"></input>
+                        <input type="text" className="bg-gray-100 rounded-lg border-none w-52"></input>
                     </div>
                 </div>
                 <div className="order-2">
                     <div className="flex flex-col space-y-1">
                         <label className="uppercase text-sm font-bold">
-                            Prénom
+                            Prénom<span className="text-red-600">*</span>
                         </label>
-                        <input type="text" className="bg-gray-100 rounded-lg border-none"></input>
+                        <input type="text" className="bg-gray-100 rounded-lg border-none w-52"></input>
                     </div>
                 </div>
             </div>
@@ -25,22 +25,25 @@ const FormContact = () => {
                         <label className="uppercase text-sm font-bold">
                             Numéro de téléphone
                         </label>
-                        <input type="text" className="bg-gray-100 rounded-lg border-none"></input>
+                        <input type="text" className="bg-gray-100 rounded-lg border-none w-52"></input>
                     </div>
                 </div>
                 <div className="order-2">
                     <div className="flex flex-col space-y-1">
                         <label className="uppercase text-sm font-bold">
-                            Entreprise
+                            Concerne<span className="text-red-600">*</span>
                         </label>
-                        <input type="text" className="bg-gray-100 rounded-lg border-none"></input>
+                        <select className="bg-gray-100 rounded-lg border-none w-52">
+                            <option>Particulier</option>
+                            <option>Professionel</option>
+                        </select>
                     </div>
                 </div>
             </div>
             <div className="mb-4">
                 <div className="flex flex-col space-y-1">
                     <label className="uppercase text-sm font-bold">
-                        Message
+                        Message<span className="text-red-600">*</span>
                     </label>
                     <textarea name="" id="" cols="15" rows="4" className="bg-gray-100 rounded-lg border-none"></textarea>
                 </div>
