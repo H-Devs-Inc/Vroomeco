@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('ville_depart');
             $table->string('ville_arriver');
             $table->date('date_traject');
+            $table->integer('nombre_place')->nullable();
+            $table->time('heure_depart')->nullable();
+            $table->time('heure_arriver')->nullable();
             $table->time('estimated_time')->nullable();
             $table->string('distance')->nullable();
             $table->timestamps();

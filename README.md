@@ -1,4 +1,4 @@
-# <p align="center" >Vroomeco</p>
+# <h1 align="center" >Vroomeco</h1>
 
 # Installation
 
@@ -44,31 +44,37 @@ En dévelopement : ```yarn dev``` (permet de charger a chaque modification)
 
 ### route vers les dossier utiles
 
-Name | Route | <p align="center">utilisation</p>
-:----------------|------------- |-------------:
- React JS | `/ressource/js` | <p align="center"></p>
- route front | `/route/web.php` | <p align="center"></p>
- route back | `/route/api.php` | <p align="center"></p>
- route Controller | `/app/Http/Controllers` | <p align="center"> A ne pas toucher sauf si vous faite le back</p>
-
+| Name | Route | <p align="center">utilisation</p> |
+| :--- | ---- | ---: |
+| React JS | `/ressource/js` | <p align="center"></p> |
+| route front | `/route/web.php` | <p align="center"></p> |
+| route back | `/route/api.php` | <p align="center"></p> |
+| route Controller | `/app/Http/Controllers` | <p align="center"> A ne pas toucher sauf si vous faite le back</p> |
 
 ### Route 
 
-| Route | Description | Api
-:---------------- |-------------| -------------:
-  `/`| route vers la page d'acceuil     |<p align="center" >❌</p>
-  `/home`| route vers la page d'acceuil après authentification     |<p align="center" >❌</p>
-  `/login`| route vers la page de login     | <p align="center" >❌</p>
-  `/register`| route vers la page de register | <p align="center">❌</p>
-  `/logout`| route vers la page de deconnexion     |<p align="center" >❌</p>
-  `/traject`| route vers la page traject     |<p align="center" >❌</p>
+| Route | Description | API |
+| ---- | ---- | ---- |
+| `/` |  | <p align="center" >❌</p> |
+| `/home` |  | <p align="center" >❌</p> |
+| `/login` |  | <p align="center" >❌</p> |
+| `/register` |  | <p align="center" >❌</p> |
+| `/logout` |  | <p align="center" >❌</p> |
+| `/trajects` |  | <p align="center" >❌</p> |
+| `/aboout-us` |  | <p align="center" >❌</p> |
+| `/contact` |  | <p align="center" >❌</p> |
+| `/api/roads` | Affiche tous les trajet disponible | <p align="center" >✅</p> |
+| `/api/create-roads` | Crée un nouveau traject | <p align="center" >✅</p> |
+| `/api/search` | recherche des traject spécific | <p align="center" >✅</p> |
+| `/api/roads/{uuid}` | affiche 1 trajet bien spécifique part rapport a son uuid | <p align="center" >✅</p> |
 
-#### Donnée par default: 
-faire la commande : 
+### Ajout des Seeder : 
+#### Seeder Utilisateur : 
+
 ```bash
     php artisan db:seed --class=UsersTableSeeder
 ```
-vous aurez ensuite ces information la de remplie pour l'utilisateur de test:
+Donner rentrer dans la base de donnée 
 ```php
         DB::table('users')->insert([
             'name' => 'John Doe',
@@ -82,6 +88,67 @@ vous aurez ensuite ces information la de remplie pour l'utilisateur de test:
         ]);
 
 ```
+#### Seeder Cars (voiture utilisateur) : 
+
+```bash
+    php artisan db:seed --class=CarsSeeder
+```
+
+Donner rentrer dans la base de donnée 
+
+```php
+        DB::table('cars')->insert([
+
+            [
+
+                'user_id' => 1,
+
+                'marque' => 'Toyota',
+
+                'model' => 'Corolla',
+
+                'type' => 'Sedan',
+
+                'colors' => 'Blue',
+
+                'annee' => '2020-01-01',
+
+                'immatriculation' => 'ABC123',
+
+                'created_at' => now(),
+
+                'updated_at' => now(),
+
+            ],
+
+        ]);
+```
+
+### Donner de test API 
+
+#### Cree un nouveau trajet : 
+```json
+{
+    "created_by": "1",
+    "vehicule": "1",
+	"nombre_place": "3",
+    "ville_depart": "Paris",
+    "ville_arriver": "Lyon",
+    "date_traject": "2024-03-08",
+	  "heure_depart": "08:00:00"
+}
+```
+
+#### Rechercher un trajet : 
+
+```json
+{
+    "ville_depart": "",
+    "ville_arriver": "",
+    "date_traject": ""
+}
+```
+
 #### Diagram de la bdd 
 
 ```mermaid
@@ -112,6 +179,8 @@ erDiagram
         Ville_depart STRING
         Ville_arriver STRING
         Date_traject DATE
+        heure_depart DATE 
+        heure_arriver DATE
         Estimated_time TIME
         Distance INT
     }
