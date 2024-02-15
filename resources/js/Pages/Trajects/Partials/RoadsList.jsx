@@ -4,6 +4,15 @@ import { useState } from "react";
 
 const RoadsList = () => {
     const [ data, setData ] = useState([]);
+
+    const openModal = () => {
+        const element = document.getElementById('new_traject');
+        console.log(element);
+
+        element.style.display = 'block';
+    }
+
+
     return(
         <>
             {!data[0] ?
@@ -13,7 +22,9 @@ const RoadsList = () => {
                             <span>
                                 Aucun trajets disponible selon vos recherches. Nous vous proposons alors ceux-ci !
                             </span>
-                            <button className="flex flex-row space-x-2 justify-center items-center w-52 p-3 rounded-lg text-black font-bold" id="bg-linear">
+                            <button className="flex flex-row space-x-2 justify-center items-center w-52 p-3 rounded-lg text-black font-bold" id="bg-linear" onClick={(e) => {
+                                openModal()
+                            }}>
                                 <FontAwesomeIcon icon={ faPlus } />
                                 <span>
                                     Proposer un trajet
@@ -53,7 +64,7 @@ const RoadsList = () => {
                                                 <span className="font-bold text-black">
                                                     00:00
                                                 </span>
-                                                <div className="flex flex-row space-x-1 items-center text-blue-600">
+                                                <div className="flex flex-row space-x-1 items-center text-indigo-400">
                                                     <FontAwesomeIcon icon={ faCar } className="text-sm"/>
                                                     <span className="text-sm p-1">
                                                         2h30
@@ -71,7 +82,7 @@ const RoadsList = () => {
                                         </div>
                                     </div>
                                     <div className="mt-5">
-                                        <button className="bg-blue-600 text-white hover:bg-transparent border-2 border-blue-600  p-2 w-44 rounded-lg">
+                                        <button className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600  p-2 w-44 rounded-lg">
                                             Réserver ce trajet
                                         </button>
                                     </div>
