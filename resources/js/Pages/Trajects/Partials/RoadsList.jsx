@@ -82,9 +82,9 @@ const RoadsList = () => {
                                         </div>
                                     </div>
                                     <div className="mt-5">
-                                        <button className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600  p-2 w-44 rounded-lg">
+                                        <a href="?uuid=xxxx-xxxx-xxxxx" className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600 p-2 rounded-lg">
                                             Réserver ce trajet
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
