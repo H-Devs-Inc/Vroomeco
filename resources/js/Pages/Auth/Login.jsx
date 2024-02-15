@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Head, useForm } from '@inertiajs/react';
-import NavbarComponents from '@/Components/Header/navbar_components';
 import FooterComponents from '@/Components/Footer/footer_components';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
