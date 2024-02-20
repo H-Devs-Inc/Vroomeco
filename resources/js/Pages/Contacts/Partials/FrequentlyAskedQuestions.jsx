@@ -1,9 +1,9 @@
 const FrenquentlyAskedQuestions = () => {
     return(
-        <div className="flex items-center justify-center mt-12">
+        <div className="flex items-center justify-center p-10 mt-10">
             <div className="flex flex-col space-y-3 items-center justify-center">
-                <span className="text-2xl text-cyan-900 font-bold">
-                    Questions fréquentements posées
+                <span className="text-4xl text-blue-600 font-extrabold" id="title">
+                    Questions fréquemment posées
                 </span>
                 <p>
                     Loreum Ipseum

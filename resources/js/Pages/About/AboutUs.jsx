@@ -1,16 +1,16 @@
-import NavbarComponents from "@/Components/Header/navbar_components";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import FooterComponents from "@/Components/Footer/footer_components";
+import { Head } from "@inertiajs/react";
 
-const AboutUs = () => {
+export default function AboutUs({ auth }) {
     return(
         <>
-            <NavbarComponents/>
-                <div className="p-5">
-                    about us
-                </div>
+            <Head title="A Propos" />
+            <AuthenticatedLayout user={auth.user} />
+            <div className="p-5">
+                about us
+            </div>
             <FooterComponents/>
         </>
     )
 }
-
-export default AboutUs;
