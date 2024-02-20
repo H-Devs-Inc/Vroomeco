@@ -108,8 +108,13 @@ export default function Authenticated({ user, header, children }) {
                         <div className='hidden absolute right-1 mt-1 w-40 top-16 bg-gray-900/25 p-2 rounded-lg' id='dropdown-menu'>
                             <ul className='flex flex-col space-y-5'>
                                 <li>
+
+                                    <a href={route('profile.edit')} className='flex flex-row space-x-3 items-center'>
+                                        <FontAwesomeIcon icon={ faWrench } className='text-neutral-900' />
+
                                     <a href='' className='flex flex-row space-x-3 items-center'>
                                         <FontAwesomeIcon icon={ faWrench } className='text-blue-600' />
+
                                         <span className='font-bold text-white hover:text-neutral-100 uppercase text-sm'>
                                             Paramètres
                                         </span>

@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/roads', 'App\Http\Controllers\RoadController@index'); 
+
+// Route pour la creation d'une route
+Route::post('/create-roads', 'App\Http\Controllers\RoadController@create'); 
+
+Route::post('/search', 'App\Http\Controllers\RoadController@search'); 
+
+// Route pour la recherche d'une route part uuid  avec le controller RoadController et la methode show
+Route::get('/roads/{uuid}', 'App\Http\Controllers\RoadController@show');
