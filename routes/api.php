@@ -23,6 +23,7 @@ Route::post('/roads', 'App\Http\Controllers\RoadController@index');
 // Route pour la creation d'une route
 Route::post('/create-roads', 'App\Http\Controllers\RoadController@create'); 
 
+// Route pour la recherche d'une route avec le controller RoadController et la methode search
 Route::post('/search', 'App\Http\Controllers\RoadController@search'); 
 
 // Route pour la recherche d'une route part uuid  avec le controller RoadController et la methode show
