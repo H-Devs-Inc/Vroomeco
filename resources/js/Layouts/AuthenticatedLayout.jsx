@@ -111,7 +111,7 @@ export default function Authenticated({ user, header, children }) {
 
                                     <a href={route('profile.edit')} className='flex flex-row space-x-3 items-center'>
                                         <FontAwesomeIcon icon={ faWrench } className='text-neutral-900' />
-
+                                    </a>
                                     <a href='' className='flex flex-row space-x-3 items-center'>
                                         <FontAwesomeIcon icon={ faWrench } className='text-blue-600' />
 
@@ -172,6 +172,6 @@ export default function Authenticated({ user, header, children }) {
                 </div>
             </div>
         </nav>
-
-    );
+    
+    )
 }

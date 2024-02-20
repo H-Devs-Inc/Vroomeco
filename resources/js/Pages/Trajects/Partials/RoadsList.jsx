@@ -22,7 +22,7 @@ const RoadsList = () => {
                             <span>
                                 Aucun trajets disponible selon vos recherches. Nous vous proposons alors ceux-ci !
                             </span>
-                            <button className="flex flex-row space-x-2 justify-center items-center w-52 p-3 rounded-lg text-black font-bold" id="bg-linear" onClick={(e) => {
+                            <button className="flex flex-row space-x-2 justify-center items-center w-52 p-3 rounded-lg text-white font-bold bg-green-500 hover:bg-green-600" id="" onClick={(e) => {
                                 openModal()
                             }}>
                                 <FontAwesomeIcon icon={ faPlus } />
@@ -82,7 +82,7 @@ const RoadsList = () => {
                                         </div>
                                     </div>
                                     <div className="mt-5">
-                                        <a href="?uuid=xxxx-xxxx-xxxxx" className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600 p-2 rounded-lg">
+                                        <a href="?uuid=GzCR3UjGrp" className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600 p-2 rounded-lg">
                                             Réserver ce trajet
                                         </a>
                                     </div>

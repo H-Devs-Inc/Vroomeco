@@ -4,15 +4,72 @@ import FooterComponents from "@/Components/Footer/footer_components";
 import RoadsList from "./Partials/RoadsList";
 import TrajectsForm from "./Partials/NewTrajectsForm";
 
+import { StandaloneSearchBox, useJsApiLoader } from '@react-google-maps/api';
+
 import { Head } from '@inertiajs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faInfo, faInfoCircle, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faCalendarAlt, faCircle, faInfo, faInfoCircle, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
+import MapsLayout from './Layouts/MapsLayout';
+import { useEffect, useRef, useState } from 'react';
+
+import axios from 'axios';
 
 export default function Trajects({ auth }) {
     const url = new URLSearchParams(document.location.search);
 
     const uuid = url.get("uuid");
-    const departure_city = url.get("departure_city");
+
+    const departure_city = url.get("departure");
+    const arrival_city = url.get("arrival");
+    const passengers = url.get("passengers");
+    const date = url.get("date");
+
+    const [ data, setData ] = useState([]);
+    const [ roads, setRoads ] = useState([]);
+
+    const [ departure, setDeparture ] = useState('Autour de chez vous');
+    const [ arrival, setArrival ] = useState('');
+
+    const inputRef = useRef();
+    const inputRef_1 = useRef();
+
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-maps-script',
+        googleMapsApiKey: "AIzaSyAMAOUTF_smICXoMH3bWrSpGTN7ltamHO4",
+        libraries: ['places']
+      })
+  
+      const handlePlaceChanged = () => {
+        const [ place ] = inputRef.current.getPlaces();
+        if(place) {
+          console.log(place.formatted_address);
+        }
+      }
+  
+      const handlePlaceChanged_1 = () => {
+        const [ place_1 ] = inputRef_1.current.getPlaces();
+        if(place_1) {
+          console.log(place_1.formatted_address)
+        }
+      }
+
+    useEffect(() => {
+        if(!uuid) return;
+        axios.get(`http://127.0.0.1:8000/api/roads/${uuid}`).then(async (response) => {
+            console.log(response.data)
+            await setData(response.data)
+        })
+
+        if(!date) return;
+        axios.post("http://127.0.0.1:8000/api/search", {
+            ville_depart: `${ !departure_city ? '' : departure_city }`,
+            ville_arriver: `${ !arrival_city ? '' : arrival_city }`,
+            date_traject: `${date}`
+        }).then(async (response) => {
+            console.log(response.data);
+            await setRoads(response.data);
+        })
+    }, [])
 
     return(
         <>
@@ -22,9 +79,140 @@ export default function Trajects({ auth }) {
             <AuthenticatedLayout user={auth.user} />
             { !uuid ?
                 <>
-                    <div className="p-5">
-                        <RoadsList/>
-                    </div>
+                    {!date ?
+                        <>
+                            <div className="p-5">
+                                <RoadsList/>
+                            </div>
+                        </>
+                    :
+                        <>
+                            <div className='flex flex-row justify-center items-center p-10' id='main-content'>
+                                <div className='flex justify-between bg-white p-3 rounded-l-xl'>
+                                    <div className='order-1'>
+                                        <div className='flex flex-row space-x-3 items-center'>
+                                            <FontAwesomeIcon icon={ faCircle } className='text-green-500' />
+                                            { isLoaded ?
+                                                <>
+                                                    <StandaloneSearchBox 
+                                                      onLoad={ ref => (inputRef.current = ref) }
+                                                      onPlacesChanged={ handlePlaceChanged }
+                                                    >
+                                                      <input type='text' value={ !departure_city ? departure : departure_city } className='form-control rounded-lg text-black placeholder:text-black border border-gray-200' placeholder='Départ' onChange={(e) => { setDeparture(e.target.value) }}>
+                                                      </input>
+                                                    </StandaloneSearchBox>
+                                                </>
+                                            :
+                                                <>
+                                                  none
+                                                </>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='ml-5 order-2'>
+                                        <div className='flex flex-row space-x-3 items-center'>
+                                            <FontAwesomeIcon icon={ faCircle } className='text-green-500' />
+                                            { isLoaded ?
+                                                <>
+                                                  <StandaloneSearchBox 
+                                                    onLoad={ ref => (inputRef_1.current = ref) }
+                                                    onPlacesChanged={ handlePlaceChanged_1 }
+                                                  >
+                                                    <input type='text' value={ !arrival_city ? arrival : arrival_city  } className='form-control rounded-lg text-black placeholder:text-black border border-gray-200' placeholder='Arrivé' onChange={(e) => { setArrival(e.target.value) }}></input>
+                                                  </StandaloneSearchBox>
+                                                </>
+                                            :
+                                                <>
+                                                  none
+                                                </>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='ml-5 order-3'>
+                                        <div className='flex flex-row space-x-3 items-center'>
+                                          <FontAwesomeIcon icon={ faUser } className='text-green-500' />
+                                          <input type='number' value={ !passengers ? 1 : passengers  } placeholder='0' className='w-14 rounded-lg text-black placeholder:text-black border border-gray-200' />
+                                        </div>
+                                    </div>
+                                    <div className='ml-5 order-4'>
+                                      <div className='flex flex-row space-x-3 items-center'>
+                                        <FontAwesomeIcon icon={ faCalendarAlt } className='text-green-500' />
+                                        <input type='date' value={ date } className='rounded-lg text-black placeholder:text-black border border-gray-200'/>
+                                      </div>
+                                    </div>
+                                </div>
+                                <button className='text-white font-bold flex items-center justify-center p-5 bg-blue-600 hover:bg-blue-700 rounded-r-xl' onClick={(e) => {
+                                    Search();
+                                }}>
+                                    Rechercher
+                                </button>
+                            </div>
+                            <div className='p-10'>
+                                { !roads[0] ?
+                                    <>
+                                        <RoadsList/>
+                                    </>
+                                :
+                                    <>
+                                        <div className='grid grid-cols-4 gap-4'>
+                                            { roads.map((item, index) => (
+                                                <div className="bg-neutral-100 shadow-md hover:shadow-xl p-5 w-52 rounded-lg">
+                                                    <div className="flex justify-between">
+                                                        <div className="order-1">
+                                                            <div className="flex flex-row space-x-2 items-center">
+                                                                <span className="text-black uppercase font-bold">
+                                                                    { item.ville_depart }
+                                                                </span>
+                                                                <FontAwesomeIcon icon={ faArrowRight } />
+                                                                <span className="text-black uppercase font-bold">
+                                                                    { item.ville_arriver }
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="order-2">
+                                                            <div>
+                                                                <a href="/#">
+                                                                    <img src="https://static.generated.photos/vue-static/face-generator/landing/wall/16.jpg" alt="road_user" className="w-7 h-7 rounded-full"></img>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex flex-row space-x-3 mt-5">
+                                                        <div className="flex flex-col space-y-3">
+                                                            <div className="flex flex-col space-y-0">
+                                                                <span className="font-bold text-black">
+                                                                    00:00
+                                                                </span>
+                                                                <div className="flex flex-row space-x-1 items-center text-indigo-400">
+                                                                    <FontAwesomeIcon icon={ faCar } className="text-sm"/>
+                                                                    <span className="text-sm p-1">
+                                                                        { item.estimated_time }
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <span className="font-bold text-black">
+                                                                02:30
+                                                            </span>
+                                                        </div>
+                                                        <div className="items-center text-center">
+                                                            <div className="w-3 h-3 rounded-full bg-transparent border-2 border-blue-600"></div>
+                                                            <div class="inline-block h-16 w-0.5 bg-blue-600 opacity-100 mt-1"></div>
+                                                            <div className="w-3 h-3 rounded-full bg-transparent border-2 border-blue-600"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mt-5">
+                                                        <a href={`?uuid=${item.uuid}`} className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600 p-2 rounded-lg">
+                                                            Réserver ce trajet
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </>
+                                }
+                            </div>
+                        </>
+                    }
                 </>
             :
                 <>
@@ -36,7 +224,7 @@ export default function Trajects({ auth }) {
                                         Vendredi 2 février
                                     </span>
                                     <p>
-                                        Paris <FontAwesomeIcon icon={ faArrowRight } /> Lille
+                                        { data.ville_depart } &ensp;<FontAwesomeIcon icon={ faArrowRight } />&ensp; { data.ville_arriver }
                                     </p>
                                 </div>
                             </div>
@@ -47,24 +235,24 @@ export default function Trajects({ auth }) {
                                 <div className='flex justify-between mt-3'>
                                     <div className='order-1'>
                                         <span>
-                                            Paris, France
+                                            { data.ville_depart }
                                         </span>
                                     </div>
                                     <div className='order-2'>
                                         <span className='text-sm text-blue-600'>
-                                            2h40
+                                            { data.estimated_time }
                                         </span>
                                     </div>
                                     <div className='order-3'>
                                         <span>
-                                            Lille, France
+                                            { data.ville_arriver }
                                         </span>
                                     </div>
                                 </div>
                                 <div className='flex flex-row space-x-1 items-center'>
                                     <div className='flex flex-row space-x-2 items-center'>
                                         <span className='text-sm'>
-                                            14:00
+                                            { data.heure_depart }
                                         </span>
                                         <div className='w-4 h-4 rounded-full border-2 border-blue-600'/>
                                     </div>
@@ -72,7 +260,7 @@ export default function Trajects({ auth }) {
                                     <div className='flex flex-row space-x-2 items-center'>
                                         <div className='w-4 h-4 rounded-full border-2 border-blue-600'/>
                                         <span className='text-sm'>
-                                            16:40
+                                            { data.heure_arriver }
                                         </span>
                                     </div>
                                 </div>
@@ -93,10 +281,10 @@ export default function Trajects({ auth }) {
                                             Couleur : Rouge
                                         </p>
                                         <div className='flex flex-row space-x-5 items-center'>
-                                            <FontAwesomeIcon icon={ faUser } className='text-red-500' />
-                                            <FontAwesomeIcon icon={ faUser } className='text-red-500' />
-                                            <FontAwesomeIcon icon={ faUser } className='text-yellow-500' />
-                                            <FontAwesomeIcon icon={ faUser } className='text-green-500' />
+                                            <FontAwesomeIcon icon={ faUser } className={`${data.nombre_place < 1 ? 'text-red-500' : 'text-green-500'}`} />
+                                            <FontAwesomeIcon icon={ faUser } className={`${data.nombre_place < 2 ? 'text-red-500' : 'text-green-500'}`} />
+                                            <FontAwesomeIcon icon={ faUser } className={`${data.nombre_place < 3 ? 'text-red-500' : 'text-green-500'}`} />
+                                            <FontAwesomeIcon icon={ faUser } className={`${data.nombre_place < 4 ? 'text-red-500' : 'text-green-500'}`} />
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +351,7 @@ export default function Trajects({ auth }) {
                             </div>
                         </div>
                         <div className=''>
-                            Google Maps SDK
+                            <MapsLayout/>
                         </div>
                     </div>
                 </>
