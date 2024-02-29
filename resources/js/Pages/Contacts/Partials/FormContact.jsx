@@ -49,7 +49,7 @@ const FormContact = () => {
                 </div>
             </div>
             <div className="">
-                <button className="bg-white hover:bg-transparent border-2 border-white hover:border-black p-2 rounded-lg w-44 uppercase text-sm font-bold" id="">
+                <button className="p-2 rounded-lg w-44 uppercase text-sm font-bold text-black hover:text-blue-600" id="main-content">
                     Envoyer
                 </button>
             </div>

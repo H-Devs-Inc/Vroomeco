@@ -1,8 +1,13 @@
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import { useState } from "react";
 
 export default function TrajectsForm({ auth }) {
+    const [ departure, setDeparture ] = useState('');
+    const [ arrival, setArrival ] = useState('');
+    const [ date, setDate ] = useState(null);
+
     const [ data, setData ] = useState([]);
 
     const closeModal = () => {
@@ -13,6 +18,14 @@ export default function TrajectsForm({ auth }) {
 
     const searchCarModel = (model) => {
 
+    }
+
+    function onSubmit() {
+        axios.post('http://127.0.0.1:8000/api/create-road', {
+            ville_depart: departure,
+            ville_arriver: arrival,
+            date_traject: date
+        })
     }
 
     return(

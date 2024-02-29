@@ -28,7 +28,7 @@ export default function Authenticated({ user, header, children }) {
                                 Trajets
                             </a>
                         </li>
-                        <li>
+                        <li className='hidden'>
                             <a href={ "/about-us" } className='text-black hover:underline underline-offset-2 uppercase'>
                                 Actualités
                             </a>

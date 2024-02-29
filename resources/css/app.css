@@ -65,7 +65,7 @@
 }
 
 #form_contact {
-  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  background: white;
   width: 500px;
 }
 
@@ -86,13 +86,13 @@ details > summary::-webkit-details-marker {
 }
 
 details > summary::before {
-  content: '>';
-  background: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
+  content: "▶";
+  color: linear-gradient(0.80turn, #ffd90285, #c7f9cc95, #22577aa2);
   padding: 5px;
 }
 
 details[open] > summary::before {
-  content: 'X';
+  content: '🔽';
   padding: 5px;
 }
 
@@ -123,4 +123,8 @@ details[open] > summary {
 
 #traject_container {
   width: 500px;
+}
+
+#video_main {
+  height: 410px;
 }

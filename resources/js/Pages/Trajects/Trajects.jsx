@@ -8,7 +8,7 @@ import { StandaloneSearchBox, useJsApiLoader } from '@react-google-maps/api';
 
 import { Head } from '@inertiajs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faCalendarAlt, faCar, faCircle, faInfo, faInfoCircle, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faCalendarAlt, faCar, faCircle, faInfo, faInfoCircle, faPlus, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import MapsLayout from './Layouts/MapsLayout';
 import { useEffect, useRef, useState } from 'react';
 
@@ -35,7 +35,7 @@ export default function Trajects({ auth }) {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-maps-script',
-        googleMapsApiKey: "AIzaSyAMAOUTF_smICXoMH3bWrSpGTN7ltamHO4",
+        googleMapsApiKey: "AIzaSyAMuvQnNsDAKJ6wGKkoa7MRHmn9WEP7WS8",
         libraries: ['places']
       })
   
@@ -52,6 +52,13 @@ export default function Trajects({ auth }) {
           console.log(place_1.formatted_address)
         }
       }
+
+      const openModal = () => {
+        const element = document.getElementById('new_traject');
+        console.log(element);
+
+        element.style.display = 'block';
+    }
 
     useEffect(() => {
         if(!uuid) {
@@ -87,67 +94,82 @@ export default function Trajects({ auth }) {
                 <>
                     {!date ?
                         <>
-                        <div className='flex flex-row justify-center items-center p-10' id='main-content'>
-                        <div className='flex justify-between bg-white p-3 rounded-l-xl'>
-                            <div className='order-1'>
-                                <div className='flex flex-row space-x-3 items-center'>
-                                    <FontAwesomeIcon icon={ faCircle } className='text-green-500' />
-                                    { isLoaded ?
-                                        <>
-                                            <StandaloneSearchBox 
-                                              onLoad={ ref => (inputRef.current = ref) }
-                                              onPlacesChanged={ handlePlaceChanged }
-                                            >
-                                              <input type='text' value={ !departure_city ? departure : departure_city } className='form-control rounded-lg text-black placeholder:text-black border border-gray-200' placeholder='Départ' onChange={(e) => { setDeparture(e.target.value) }}>
-                                              </input>
-                                            </StandaloneSearchBox>
-                                        </>
-                                    :
-                                        <>
-                                          none
-                                        </>
-                                    }
+                        <div className='flex flex-col space-x-5' id='main-content'>
+                            <div className='flex flex-row justify-center items-center pt-24'>
+                                <div className='flex justify-between bg-white p-3 rounded-l-xl'>
+                                    <div className='order-1'>
+                                        <div className='flex flex-row space-x-3 items-center'>
+                                            <FontAwesomeIcon icon={ faCircle } className='text-green-500' />
+                                            { isLoaded ?
+                                                <>
+                                                    <StandaloneSearchBox 
+                                                      onLoad={ ref => (inputRef.current = ref) }
+                                                      onPlacesChanged={ handlePlaceChanged }
+                                                    >
+                                                      <input type='text' value={ !departure_city ? departure : departure_city } className='form-control rounded-lg text-black placeholder:text-black border border-gray-200' placeholder='Départ' onChange={(e) => { setDeparture(e.target.value) }}>
+                                                      </input>
+                                                    </StandaloneSearchBox>
+                                                </>
+                                            :
+                                                <>
+                                                  none
+                                                </>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='ml-5 order-2'>
+                                        <div className='flex flex-row space-x-3 items-center'>
+                                            <FontAwesomeIcon icon={ faCircle } className='text-green-500' />
+                                            { isLoaded ?
+                                                <>
+                                                  <StandaloneSearchBox 
+                                                    onLoad={ ref => (inputRef_1.current = ref) }
+                                                    onPlacesChanged={ handlePlaceChanged_1 }
+                                                  >
+                                                    <input type='text' value={ !arrival_city ? arrival : arrival_city  } className='form-control rounded-lg text-black placeholder:text-black border border-gray-200' placeholder='Arrivé' onChange={(e) => { setArrival(e.target.value) }}></input>
+                                                  </StandaloneSearchBox>
+                                                </>
+                                            :
+                                                <>
+                                                  none
+                                                </>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='ml-5 order-3'>
+                                        <div className='flex flex-row space-x-3 items-center'>
+                                          <FontAwesomeIcon icon={ faUser } className='text-green-500' />
+                                          <input type='number' value={ !passengers ? 1 : passengers  } placeholder='0' className='w-14 rounded-lg text-black placeholder:text-black border border-gray-200' />
+                                        </div>
+                                    </div>
+                                    <div className='ml-5 order-4'>
+                                      <div className='flex flex-row space-x-3 items-center'>
+                                        <FontAwesomeIcon icon={ faCalendarAlt } className='text-green-500' />
+                                        <input type='date' value={ date } className='rounded-lg text-black placeholder:text-black border border-gray-200'/>
+                                      </div>
+                                    </div>
                                 </div>
+                                <button className='text-white font-bold flex items-center justify-center p-5 bg-blue-600 hover:bg-blue-700 rounded-r-xl' onClick={(e) => {
+                                    Search();
+                                }}>
+                                    Rechercher
+                                </button>
                             </div>
-                            <div className='ml-5 order-2'>
-                                <div className='flex flex-row space-x-3 items-center'>
-                                    <FontAwesomeIcon icon={ faCircle } className='text-green-500' />
-                                    { isLoaded ?
-                                        <>
-                                          <StandaloneSearchBox 
-                                            onLoad={ ref => (inputRef_1.current = ref) }
-                                            onPlacesChanged={ handlePlaceChanged_1 }
-                                          >
-                                            <input type='text' value={ !arrival_city ? arrival : arrival_city  } className='form-control rounded-lg text-black placeholder:text-black border border-gray-200' placeholder='Arrivé' onChange={(e) => { setArrival(e.target.value) }}></input>
-                                          </StandaloneSearchBox>
-                                        </>
-                                    :
-                                        <>
-                                          none
-                                        </>
-                                    }
-                                </div>
+                            <div className="flex flex-col space-y-5 p-9 mt-10">
+                                <span>
+                                    Aucun trajets disponible selon vos recherches. Nous vous proposons alors ceux-ci !
+                                </span>
+                                <button className="flex flex-row space-x-2 justify-center items-center w-52 p-3 rounded-lg text-white font-bold bg-transaprent hover:bg-gray-200/25 border border-white" id="" onClick={(e) => {
+                                    openModal()
+                                }}>
+                                    <FontAwesomeIcon icon={ faPlus } />
+                                    <span>
+                                        Proposer un trajet
+                                    </span>
+                                </button>
                             </div>
-                            <div className='ml-5 order-3'>
-                                <div className='flex flex-row space-x-3 items-center'>
-                                  <FontAwesomeIcon icon={ faUser } className='text-green-500' />
-                                  <input type='number' value={ !passengers ? 1 : passengers  } placeholder='0' className='w-14 rounded-lg text-black placeholder:text-black border border-gray-200' />
-                                </div>
                             </div>
-                            <div className='ml-5 order-4'>
-                              <div className='flex flex-row space-x-3 items-center'>
-                                <FontAwesomeIcon icon={ faCalendarAlt } className='text-green-500' />
-                                <input type='date' value={ date } className='rounded-lg text-black placeholder:text-black border border-gray-200'/>
-                              </div>
-                            </div>
-                        </div>
-                        <button className='text-white font-bold flex items-center justify-center p-5 bg-blue-600 hover:bg-blue-700 rounded-r-xl' onClick={(e) => {
-                            Search();
-                        }}>
-                            Rechercher
-                        </button>
-                    </div>
-                            <div className="p-5">
+                            <div className="p-0">
                                 <RoadsList/>
                             </div>
                         </>
@@ -216,6 +238,19 @@ export default function Trajects({ auth }) {
                             <div className='p-10'>
                                 { !roads[0] ?
                                     <>
+                                        <div className="flex flex-col space-y-5">
+                                            <span>
+                                                Aucun trajets disponible selon vos recherches. Nous vous proposons alors ceux-ci !
+                                            </span>
+                                            <button className="flex flex-row space-x-2 justify-center items-center w-52 p-3 rounded-lg text-white font-bold bg-green-500 hover:bg-green-600" id="" onClick={(e) => {
+                                                openModal()
+                                            }}>
+                                                <FontAwesomeIcon icon={ faPlus } />
+                                                <span>
+                                                    Proposer un trajet
+                                                </span>
+                                            </button>
+                                        </div>
                                         <RoadsList/>
                                     </>
                                 :
@@ -247,17 +282,17 @@ export default function Trajects({ auth }) {
                                                         <div className="flex flex-col space-y-3">
                                                             <div className="flex flex-col space-y-0">
                                                                 <span className="font-bold text-black">
-                                                                    00:00
+                                                                    { item.heure_depart.slice(0, 5) }
                                                                 </span>
                                                                 <div className="flex flex-row space-x-1 items-center text-indigo-400">
                                                                     <FontAwesomeIcon icon={ faCar } className="text-sm"/>
                                                                     <span className="text-sm p-1">
-                                                                        { item.estimated_time }
+                                                                        { item.estimated_time.slice(0, 5) }
                                                                     </span>
                                                                 </div>
                                                             </div>
                                                             <span className="font-bold text-black">
-                                                                02:30
+                                                                { item.heure_arriver.slice(0, 5) }
                                                             </span>
                                                         </div>
                                                         <div className="items-center text-center">
@@ -417,7 +452,7 @@ export default function Trajects({ auth }) {
                             </div>
                         </div>
                         <div className=''>
-                            <MapsLayout/>
+                            <></>
                         </div>
                     </div>
                 </>

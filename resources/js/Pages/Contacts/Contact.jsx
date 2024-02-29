@@ -12,12 +12,12 @@ export default function Contact({ auth }) {
         <>
             <Head title="Contact" />
             <AuthenticatedLayout user={auth.user} />
-            <div className="p-5">
-                <div className="flex justify-between">
+            <div className="p-10" id="main-content">
+                <div className="flex justify-between mt-20">
                     <div className="order-1">
                         <FormContact/>
                     </div>
-                    <div className="order-2 mr-32">
+                    <div className="order-2 mr-40">
                         <div className="flex flex-col space-y-10">
                             <span className="text-4xl text-blue-600 font-extrabold" id="title">Comment nous joindre ?</span>
                             <p className="w-96">
@@ -40,8 +40,8 @@ export default function Contact({ auth }) {
                         </div>
                     </div>
                 </div>
-                <FrenquentlyAskedQuestions/>
             </div>
+            <FrenquentlyAskedQuestions/>
             <FooterComponents/>
         </>
     )

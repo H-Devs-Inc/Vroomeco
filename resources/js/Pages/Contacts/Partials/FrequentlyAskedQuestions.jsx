@@ -5,9 +5,6 @@ const FrenquentlyAskedQuestions = () => {
                 <span className="text-4xl text-blue-600 font-extrabold" id="title">
                     Questions fréquemment posées
                 </span>
-                <p>
-                    Loreum Ipseum
-                </p>
                 <div className="pt-10">
                     <div className="flex flex-col space-y-10">
                         <details className="bg-neutral-100 shadow-xl p-5 rounded-lg" id="details-control">

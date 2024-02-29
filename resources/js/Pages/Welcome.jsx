@@ -15,6 +15,7 @@ import roads from '../../addons/images/roads.png';
 import tree from '../../addons/images/tree.png';
 import tree_symbol from '../../addons/temp/tree_symb.png';
 import group_1 from '../../addons/temp/group_0001.png';
+import axios from 'axios';
 
 export default function Welcome({ auth }) {
     const inputRef = useRef();
@@ -32,16 +33,16 @@ export default function Welcome({ auth }) {
 
     const { isLoaded } = useJsApiLoader({
       id: 'google-maps-script',
-      googleMapsApiKey: "AIzaSyAMAOUTF_smICXoMH3bWrSpGTN7ltamHO4",
+      googleMapsApiKey: "AIzaSyAMuvQnNsDAKJ6wGKkoa7MRHmn9WEP7WS8",
       libraries: ['places']
     })
 
     const handlePlaceChanged = () => {
       const [ place ] = inputRef.current.getPlaces();
       if(place) {
-        console.log(place.formatted_address);
+        console.log(place.address_components[0].long_name);
         setOptions({
-          departure_select: place.formatted_address
+          city_departure: place.address_components[0].long_name
         })
       }
     }
@@ -49,9 +50,9 @@ export default function Welcome({ auth }) {
     const handlePlaceChanged_1 = () => {
       const [ place_1 ] = inputRef_1.current.getPlaces();
       if(place_1) {
-        console.log(place_1.formatted_address)
+        console.log(place_1.address_components[0].long_name);
         setOptions({
-          arrival_select: place_1.formatted_address
+          city_arrival: place_1.address_components[0].long_name
         })
       }
     }
@@ -79,6 +80,9 @@ export default function Welcome({ auth }) {
                     <p className='w-80 md:w-3/4'>
                       VroomEco vous offre bien plus qu'un simple moyen de déplacement, c'est une initiative dédiée à la préservation de notre environnement tout en créant des liens. L'aspect économique joue aussi un grand rôle dans un service de covoiturage, aussi cette méthode permet de simplifier vos trajets.
                     </p>
+                    <p className='w-80 md:w-3/4'>
+                      Notre plateforme innovante facilite la mise en relation entre conducteurs et passagers qui partagent des itinéraires similaires à travers la Suisse et au delà de ses frontières.
+                    </p>
                     <ul className='flex flex-row space-x-5 md:w-3/4'>
                       <li>
                         <span className='font-bold'>
@@ -96,12 +100,9 @@ export default function Welcome({ auth }) {
                         </span>
                       </li>
                     </ul>
-                    <p className='w-80 md:w-3/4'>
-                      Notre plateforme innovante facilite la mise en relation entre conducteurs et passagers qui partagent des itinéraires similaires à travers la Suisse et au delà de ses frontières.
-                    </p>
                   </div>
                 </div>
-                <video controls autoplay className='w-96 h-96 rounded-lg'>
+                <video controls autoplay className='rounded-lg mr-24' id='video_main'>
                   <source src={ video } type='video/mp4' />
                 </video>
               </div>
