@@ -25,6 +25,7 @@ return new class extends Migration
             $table->time('heure_arriver')->nullable();
             $table->time('estimated_time')->nullable();
             $table->string('distance')->nullable();
+            $table->string('prix')->nullable();
             $table->timestamps();
 
             // Définit la clé étrangère

@@ -18,7 +18,8 @@ class Road extends Model
         'ville_arriver',
         'date_traject',
         'estimated_time',
-        'distance'
+        'distance',
+        'prix',
     ];
 
     // Supprime le timestamp de mise à jour automatique

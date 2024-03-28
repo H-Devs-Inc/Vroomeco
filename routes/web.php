@@ -50,5 +50,8 @@ Route::get('/about-us', function(){
 Route::get('/contact', function(){
     return Inertia::render('Contacts/Contact');
 });
+// route de succes qui renvois un message si le paiement est effectué sous format json afficher dans le navigateur en faison appel a la methode success du controller PaiementsController
+Route::get('/paiement/success', 'App\Http\Controllers\PayementsController@success')->name('paiement.success');
+Route::get('/paiement/cancel', 'App\Http\Controllers\PayementsController@cancel')->name('paiement.cancel');
 
 require __DIR__.'/auth.php';

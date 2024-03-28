@@ -34,3 +34,8 @@ Route::get('/roads/{uuid}', 'App\Http\Controllers\RoadController@show');
 Route::post('/create-cars', 'App\Http\Controllers\CarsController@store');
 
 Route::post('/delete-cars', 'App\Http\Controllers\CarsController@destroy');
+
+
+Route::post('/paiement/create', 'App\Http\Controllers\PayementsController@create');
+
+Route::post('/paiement/webhook', 'App\Http\Controllers\PaiementsController@webhook');
