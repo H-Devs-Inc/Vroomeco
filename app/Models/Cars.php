@@ -15,7 +15,8 @@ class Cars extends Model
         'type',
         'colors',
         'annee',
-        'immatriculation'
+        'immatriculation',
+        'nombre_place'
     ];
 
     // Supprime le timestamp de mise à jour automatique
