@@ -85,8 +85,6 @@ class RoadController extends Controller
         //calculer l'heure d'arriver en ajoutant le temps estimé au temps de depart
         $road->heure_arriver = date('H:i:s', strtotime($validatedData['heure_depart']) + strtotime($formattedTime));
 
-        // Calculer le prix du trajet en fonction de la distance avec une tarification de 2.5€ par heure
-        // $road->prix = number_format($totalSeconds / 3600 * 2.5, 2);
         // calculer le prix du trajet en fonction de la distance si elle est inferieur a 50km a 1.5€ par km soit par temps si elle est supperieur a 50km a 2.5€ par heure
         if (str_contains($road->distance, 'km')) {
             $distance = (int) str_replace(' km', '', $road->distance);
