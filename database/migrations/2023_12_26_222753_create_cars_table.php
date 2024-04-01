@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('colors');
             $table->date('annee');
             $table->string('immatriculation');
+            $table->integer('nombre_place');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
